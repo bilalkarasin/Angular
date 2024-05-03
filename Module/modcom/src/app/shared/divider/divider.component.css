@@ -1,0 +1,5 @@
+:host:not(:first-of-type)  /* ilk olarak kullanınca değil 2. 3. vs kullanımlarda ver */
+{
+  display: block;
+  margin-top: 20px;
+}

@@ -1,0 +1,16 @@
+img {
+  width: 300px;
+  /* height: 500px; */
+}
+.btn{
+  padding: 15px 10px;
+  color: azure;
+  background-color: blueviolet;
+  border-radius: 5px;
+}
+.maindiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0px;
+}

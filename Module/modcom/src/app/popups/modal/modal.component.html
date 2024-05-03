@@ -1,0 +1,18 @@
+<div (click)="onCloseClick()" class="ui dimmer visible active">
+  <div (click)="$event.stopPropagation()" class="ui modal visible active">  <!-- uyarı kutusuna tıklayınca kapanmaması için propagation kullandık-->
+    <i (click)="onCloseClick()" class="close icon"></i>
+    <div class="header">
+      Onay!
+    </div>
+    <div class="content">
+      <p>
+        Onaylamak istediğinize emin misiniz ?
+      </p>
+    </div>
+    <div class="actions">
+      <button style="color: red;" (click)="onCloseClick()" class="ui button">Hayır</button>
+      <button (click)="onCloseClick()" class="ui button">Evet</button>
+    </div>
+  </div>
+</div>
+

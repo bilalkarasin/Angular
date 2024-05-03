@@ -1,0 +1,86 @@
+<mat-toolbar style="display: flex; justify-content:space-between;" color="primary">
+  <a style="text-decoration: none; color: white;" routerLink="/">Anasayfa</a>
+<a style="text-decoration: none; color: white;" routerLink="/login">Giriş Yap</a>
+</mat-toolbar>
+
+<div style="display: flex;justify-content: center;align-items: center;height: 95vh;">
+  <mat-card style="min-width: 30%;">
+
+      <mat-card-title style="margin-left: 17px;">Kayıt Ol</mat-card-title>
+
+      <mat-card-content>
+
+        <form [formGroup]="signForm" class="d-flex flex-column">
+          <mat-form-field>
+            <mat-label>Ad</mat-label>
+            <input placeholder="Adınızı Giriniz" matInput formControlName="firstName">
+            <mat-error *ngIf="signForm.get('firstName')?.hasError('required')">
+              Ad zorunlu
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Soyad</mat-label>
+            <input placeholder="Soyadınızı Giriniz" matInput formControlName="lastName">
+            <mat-error *ngIf="signForm.get('lastName')?.hasError('required')">
+              Soyad zorunlu
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input placeholder="Emailinizi Giriniz" matInput formControlName="email">
+            <mat-error *ngIf="signForm.get('email')?.hasError('required')">
+              Email zorunlu
+            </mat-error>
+            <mat-error *ngIf="signForm.get('email')?.hasError('email')">
+              Lütfen doğru formatta email giriniz
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Şifre</mat-label>
+            <input type="password" placeholder="Şifrenizi Giriniz" matInput formControlName="password">
+            <mat-error *ngIf="signForm.get('password')?.hasError('required')">
+              Şifre zorunlu
+            </mat-error>
+            <mat-error *ngIf="signForm.get('password')?.hasError('minlength')">
+              Şifre en az 8 karakter olmalıdır
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Şifre Tekrar</mat-label>
+            <input type="password" placeholder="Şifrenizi Tekrar Giriniz" matInput formControlName="repassword">
+            <mat-error *ngIf="signForm.get('repassword')?.hasError('required')">
+              Şifre tekarı zorunlu
+            </mat-error>
+            <mat-error *ngIf="signForm.get('repassword')?.hasError('minlength')">
+              Tekrarlanan şifre de en az 8 karakter olmalıdır
+            </mat-error>
+            <mat-error *ngIf="signForm.get('repassword')?.hasError('not_the_same')">
+              Şifreler uyuşmuyor
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Adresinizi Giriniz</mat-label>
+            <textarea placeholder="Adresinizi Giriniz" matInput formControlName="address"></textarea>
+            <mat-error *ngIf="signForm.get('address')?.hasError('required')">
+              Adres zorunlu
+            </mat-error>
+          </mat-form-field>
+
+          <div style="display:flex; justify-content:  space-between; align-items: center;">
+            <a style="text-decoration: none; color: black;" routerLink="/login">Giriş Yap</a>
+            <button [disabled]="signForm.invalid" color="primary" mat-raised-button>Kayıt Ol</button>
+          </div>
+
+        </form>
+
+      </mat-card-content>
+
+
+  </mat-card>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+    <app-input [label]="$any('Ad Soyad')" [control]="$any(cardForm.get('name'))"></app-input>
+    <app-input [label]="$any('Kart Numarası')" [control]="$any(cardForm.get('cardNumber'))"></app-input>
+    <div class="columns">
+      <div class="column">
+        <app-input [label]="$any('Son Kullanma Tarihi')" [control]="$any(cardForm.get('expretion'))"></app-input>
+      </div>
+      <div class="column">
+        <app-input [label]="$any('Güvenlik Kodu')" [control]="$any(cardForm.get('securityCode'))"></app-input>
+      </div>
+    </div>
+    <div class="buttons" style="display: flex; justify-content: flex-end;">
+      <button (click)="clearForm()" type="button" class="button is-warning">Temizle</button>
+      <button class="button is-primary" [disabled]="cardForm.invalid" type="submit">Kaydet</button>
+    </div>
+  </form>
+  <!-- <div>
+    form içeriği: {{cardForm.value | json}}
+  </div>
+  <div>
+    form validmi: {{cardForm.valid ? "evet":"hayır"}}
+  </div>
+  <div> Form Hataları: {{cardForm.get('name')?.errors | json}}</div> -->
+  <!-- soru isareti null durumu iiçin  -->
+</div>
